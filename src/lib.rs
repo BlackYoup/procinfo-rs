@@ -8,6 +8,7 @@ extern crate nom;
 
 extern crate byteorder;
 extern crate libc;
+extern crate time;
 
 #[macro_use]
 mod parsers;

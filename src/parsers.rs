@@ -8,6 +8,7 @@ use std::str::{self, FromStr};
 use byteorder::{ByteOrder, LittleEndian};
 use libc::clock_t;
 use nom::{
+    alpha,
     alphanumeric,
     digit,
     Err,
@@ -105,6 +106,10 @@ pub fn sdigit(input:&[u8]) -> IResult<&[u8], &[u8]> {
 /// Parses a line to a string.
 named!(pub parse_line<String>,
        map!(map_res!(not_line_ending, str::from_utf8), ToOwned::to_owned));
+
+/// Parses a word to String
+named!(pub parse_word<String>,
+       map!(map_res!(alpha, str::from_utf8), ToOwned::to_owned));
 
 /// Parses a clock_t in base-10 format.
 named!(pub parse_clock<clock_t>,

@@ -17,6 +17,7 @@ build = "build.rs"
 libc = "0.2"
 nom = { version = "2", features = ["verbose-errors"] }
 byteorder = "0.5"
+time = "0.1"
 
 [build-dependencies]
 rustc_version = "0.1.7"
